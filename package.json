@@ -1,0 +1,15 @@
+{
+  "name": "kanye",
+  "version": "1.0.0",
+  "description": "Add",
+  "main": "index.js",
+  "repository": "git@github.com:WebRuin/Kanye-.git",
+  "author": "Tim Smith <tim.smith.hdg@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "next": "^9.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}
