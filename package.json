@@ -7,6 +7,11 @@
   "author": "Tim Smith <tim.smith.hdg@gmail.com",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
     "next": "^9.2.2",
     "react": "^16.13.0",
