@@ -1,22 +1,46 @@
 import React, { useState, useEffect } from "react"
-import useFetch from "./utils/getKanya"
+import useFetch from "../utils/getKanya"
+import styled from "styled-components"
 
-const kanye = "https://api.kanye.rest"
+import Button from "../components/Button"
+import Footer from "../components/Footer"
+
+const H1 = styled.h1`
+  color: #0365e3;
+  font-size: 5rem;
+  margin-bottom: 3rem;
+`
+
+const QuoteWrapper = styled.div`
+  height: 145px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+`
+
+const P = styled.p`
+  color: #c7e303;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+`
 
 const Index = () => {
-  let [kanyaQuote, setKanyeQuote] = useState(null)
-  let data = useFetch(kanye)
+  const kanye = "https://api.kanye.rest"
+  const { data, doFetch } = useFetch(kanye)
+
+  useEffect(() => {
+    doFetch()
+  }, [])
 
   const getMore = () => {
-    setKanyeQuote(useFetch(kanye))
+    doFetch()
   }
-
   return (
     <>
-      <h1>Welcome to Next.js!</h1>
-      <p>Here is a random Kanye West quote:</p>
-      {!data ? <div>Loading...</div> : <p>{!kanyaQuote ? data : kanyaQuote}</p>}
-      <button onClick={getMore}>Get new quote</button>
+      <H1>Random Kanye West Quotes</H1>
+      <QuoteWrapper>{!data ? <P>Loading...</P> : <P>{data}</P>}</QuoteWrapper>
+      <Button getMore={getMore} />
+      <Footer />
     </>
   )
 }
